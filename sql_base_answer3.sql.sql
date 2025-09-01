@@ -24,10 +24,12 @@ FROM countries
 ORDER BY name_length DESC;
 
 -- Q25
-
 SELECT 
     name,
-    DATE_FORMAT(birthday, '%Y年%m月%d日') AS birthday_formatted
+    DATE_FORMAT(
+        STR_TO_DATE(birthday, '%Y年%m月%d日'),
+        '%Y年%m月%d日'
+    ) AS birthday_formatted
 FROM players;
 
 -- Q26
